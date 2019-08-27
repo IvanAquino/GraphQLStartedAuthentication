@@ -1,0 +1,15 @@
+type UserAuthenticateResponse {
+    token: String
+}
+
+input UserAuthenticateRequest {
+    email: String!
+    password: String!
+}
+
+type Mutation {
+    """
+    Authenticate user by email and password
+    """
+    authenticate (input: UserAuthenticateRequest): UserAuthenticateResponse
+}

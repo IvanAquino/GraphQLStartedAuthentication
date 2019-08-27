@@ -1,0 +1,28 @@
+type User {
+    name: String
+    email: String
+}
+input UserInput {
+    name: String!
+    email: String!
+    password: String!
+}
+
+type Query {
+    """
+    Get my user info, authentication token required
+    """
+    myUser: User
+
+    """
+      Get array of users, authentication token required
+    """
+    users: [User]
+}
+
+type Mutation {
+    """
+    Create user
+    """
+    createUser (input: UserInput): User
+}
