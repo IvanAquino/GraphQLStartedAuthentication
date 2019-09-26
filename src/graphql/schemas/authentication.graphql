@@ -1,5 +1,6 @@
-type UserAuthenticateResponse {
+type AuthenticatedResponse {
     token: String
+    expiresIn: Int
 }
 
 input UserAuthenticateRequest {
@@ -11,5 +12,5 @@ type Mutation {
     """
     Authenticate user by email and password
     """
-    authenticate (input: UserAuthenticateRequest): UserAuthenticateResponse
+    authenticate (input: UserAuthenticateRequest): AuthenticatedResponse
 }

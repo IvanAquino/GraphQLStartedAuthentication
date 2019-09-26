@@ -13,11 +13,6 @@ type Query {
     Get my user info, authentication token required
     """
     myUser: User
-
-    """
-      Get array of users, authentication token required
-    """
-    users: [User]
 }
 
 type Mutation {

@@ -2,7 +2,17 @@
 
 ## Usage
 
+### Compile for production
+
+`npm run build`
+
+`npm start`
+
 ### Querys for playground
+
+### Enable playgroud
+
+Set DEBUG=true in default.env file
 
 ### Create user
 
@@ -28,12 +38,13 @@ mutation {
     password: "mySuperPassword_XD"
   }) {
     token
+    expiresIn
   }
 }
 ```
 
 ### Get info of my authenticated user
-
+#### Require authorization header with jwt token
 ```
 query {
   myUser {
