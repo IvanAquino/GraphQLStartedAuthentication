@@ -12,19 +12,6 @@ const userSchema = mongoose.Schema({
     password: String,
 });
 
-userSchema.pre('save', function (next) {
-    if (!this.isModified('password')) return next();
-
-    bcrypt.hash(this.password, process.env.PASSWORD_SALT)
-        .then(passwordHashed => {
-            this.password = passwordHashed;
-            next();
-        })
-        .catch(err => {
-            next(err)
-        })
-})
-
 const UserModel = mongoose.model('users', userSchema);
 
 module.exports = {

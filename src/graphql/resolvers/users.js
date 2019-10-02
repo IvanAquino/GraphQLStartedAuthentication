@@ -1,8 +1,11 @@
 import { UserModel } from '../../database'
+import hashPassword from '../../functions/hashPassword'
 
 const createUser = async (_, { input }) => {
     const { name, email, password } = input;
-    const user = new UserModel({ name, email, password });
+    const passwordHashed = await hashPassword(password);
+
+    const user = new UserModel({ name, email, password: passwordHashed });
 
     await user.save()
     return user
